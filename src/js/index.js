@@ -16,16 +16,12 @@ function onSearch(e) {
   newGalleryApiService.query = e.currentTarget.elements.query.value;  
   newGalleryApiService.resetPage();
   newGalleryApiService.apiService()
-      .then(data => {
-        // console.log(data)
-        buildListMarkup(data)
-      })
-        .catch('error');
+      .then(buildListMarkup)
+      .catch('error');
 }
 
-function buildListMarkup(gallery) {  
-  const markup = galleryCards(gallery);
-  refs.articlesContainer.innerHTML = markup;
+function buildListMarkup(gallery) {
+  refs.articlesContainer.insertAdjacentHTML('beforeend', galleryCards(gallery))
 }
 
 function clearContainer() {
@@ -34,12 +30,8 @@ function clearContainer() {
 
 function onLoadMore() {
   newGalleryApiService.apiService()
-      .then(data => {
-        // console.log(data)
-        buildListMarkup(data)
-      })
-        .catch('error');
-  
+      .then(buildListMarkup)
+      .catch('error');  
 }
 
 
