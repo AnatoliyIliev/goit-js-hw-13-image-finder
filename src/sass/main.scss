@@ -13,8 +13,16 @@
   // margin-right: auto;
   margin: 0 auto;
   border-radius: 4px;
-  background-color: salmon;
-  color: rgb(0, 17, 255);
+  background-color: rgb(18, 14, 243);
+  color: rgb(247, 247, 248);
+}
+
+.btn.is-hidden{
+  display: none;
+}
+
+.btn > .spinner.is-hidden{
+  display: none;
 }
 
 .gallery {
