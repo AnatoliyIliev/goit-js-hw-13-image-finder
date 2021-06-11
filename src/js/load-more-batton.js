@@ -1,5 +1,3 @@
-import getRefs from "./get-refs";
-
 export default class loadMoreBtn{
     constructor({selector, hidden = false}){
         this.refs = this.getRefs(selector);

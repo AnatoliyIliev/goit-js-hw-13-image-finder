@@ -17,7 +17,6 @@ loadMoreBtn.refs.button.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
   e.preventDefault();
-  
 
   loadMoreBtn.show();
   loadMoreBtn.disable(); 
@@ -27,18 +26,14 @@ function onSearch(e) {
   newGalleryApiService.apiService()
       .then(gallery => {
         clearContainer(); 
-        buildListMarkup(gallery); // тут пересмотреть
-        
-        
-        loadMoreBtn.disable();
+        buildListMarkup(gallery); // тут пересмотреть         
+        loadMoreBtn.enable();
       })
-      .catch('error');
-
-       
+      .catch('error');       
 }
 
 function buildListMarkup(gallery) {
-  refs.articlesContainer.insertAdjacentHTML('beforeend', galleryCards(gallery))
+  refs.articlesContainer.insertAdjacentHTML('beforeend', galleryCards(gallery));
   scroll();
 }
 
@@ -54,14 +49,11 @@ function clearContainer() {
 }
 
 function onLoadMore() {
+  loadMoreBtn.disable(); 
   newGalleryApiService.apiService()
-      .then(buildListMarkup)
-      .catch('error');   
+      .then(gallery => {        
+        buildListMarkup(gallery); // тут пересмотреть         
+        loadMoreBtn.enable();   
+
+  })
 }
-
-
-
-
-
-
-
