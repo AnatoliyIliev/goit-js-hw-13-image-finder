@@ -13,23 +13,30 @@ const newGalleryApiService = new GalleryApiService();
 
 refs.searchForm.addEventListener('submit', onSearch);
 // refs.loadMoreBtn.addEventListener('click', onLoadMore);
-loadMoreBtn.refs.button.addEventListener('click', onLoadMore);
+loadMoreBtn.refs.button.addEventListener('click', fetchArticles);
 
 function onSearch(e) {
   e.preventDefault();
+  newGalleryApiService.query = e.currentTarget.elements.query.value; 
 
   loadMoreBtn.show();
-  loadMoreBtn.disable(); 
-    
-  newGalleryApiService.query = e.currentTarget.elements.query.value;  
-  newGalleryApiService.resetPage();
+  newGalleryApiService.resetPage();  
+  clearContainer();
+  fetchArticles ();        
+}
+
+// function onLoadMore() {
+//   fetchArticles (); 
+// }
+
+function fetchArticles () {
+  loadMoreBtn.disable();   
   newGalleryApiService.apiService()
-      .then(gallery => {
-        clearContainer(); 
+      .then(gallery => {        
         buildListMarkup(gallery); // тут пересмотреть         
         loadMoreBtn.enable();
       })
-      .catch('error');       
+      .catch('error'); 
 }
 
 function buildListMarkup(gallery) {
@@ -48,12 +55,3 @@ function clearContainer() {
   refs.articlesContainer.innerHTML = '';
 }
 
-function onLoadMore() {
-  loadMoreBtn.disable(); 
-  newGalleryApiService.apiService()
-      .then(gallery => {        
-        buildListMarkup(gallery); // тут пересмотреть         
-        loadMoreBtn.enable();   
-
-  })
-}
