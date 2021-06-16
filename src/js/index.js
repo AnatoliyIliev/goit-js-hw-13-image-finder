@@ -2,7 +2,7 @@ import '../sass/main.scss';
 import galleryCards from '../templates/gallery-cards.hbs';
 import GalleryApiService from './apiService.js';
 import getRefs from './get-refs.js';
-import LoadMoreBtn from './load-more-batton';
+import LoadMoreBtn from './load-more-batton.js';
 
 const refs = getRefs();
 const loadMoreBtn = new LoadMoreBtn({
@@ -33,7 +33,7 @@ function fetchArticles () {
   loadMoreBtn.disable();   
   newGalleryApiService.apiService()
       .then(gallery => {        
-        buildListMarkup(gallery); // тут пересмотреть         
+        buildListMarkup(gallery);       
         loadMoreBtn.enable();
       })
       .catch('error'); 
@@ -41,15 +41,15 @@ function fetchArticles () {
 
 function buildListMarkup(gallery) {
   refs.articlesContainer.insertAdjacentHTML('beforeend', galleryCards(gallery));
-  scroll();
+  loadMoreBtn.scroll();
 }
 
-function scroll(){
-  refs.loadMoreBtn.scrollIntoView({
-    behavior: 'smooth',
-    block: 'end',
-  });
-}
+// function scroll(){
+//   refs.loadMoreBtn.scrollIntoView({
+//     behavior: 'smooth',
+//     block: 'end',
+//   });
+// }
 
 function clearContainer() {
   refs.articlesContainer.innerHTML = '';

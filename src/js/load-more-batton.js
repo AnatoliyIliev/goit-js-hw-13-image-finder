@@ -33,4 +33,11 @@ export default class loadMoreBtn{
     hide(){
         this.refs.button.classList.add('is-hidden');
     }
+
+    scroll(){
+        this.refs.button.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+        });
+    }
 }
