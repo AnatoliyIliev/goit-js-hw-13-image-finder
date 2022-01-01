@@ -4,33 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>hw-13</title>
-    
   </head>
   <body>
     <form class="search-form js-search-form" id="search-form">
-      <input type="text" 
-        name="query" 
-        autocomplete="off" 
-        placeholder="Search images..." /
-      >
+      <input type="text" name="query" autocomplete="off" placeholder="Search
+      images..." / >
       <button type="submit" class="btn">Search</button>
     </form>
-    
+
     <ul class="gallery js-gallary-container"></ul>
-    <button type="button" 
-      class="btn" 
-      data-action="load-more"
-      >
-      <span
-      class="spinner is-hidden" 
-      role="status" 
-      aria-hidden="true"
-      ></span>
+    <button type="button" class="btn" data-action="load-more">
+      <span class="spinner is-hidden" role="status" aria-hidden="true"></span>
       <span class="label">Load more</span>
     </button>
-    
-      <script src="/js/index.js"></script>
+
+    <script src="/src/js/index.js"></script>
   </body>
 </html>

@@ -1,9 +1,9 @@
 {
-  "name": "goit-js-hw-13-image-finder",
+  "name": "js-hw-13-image-finder",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://AnatoliyIliev.github.io/goit-js-hw-13-image-finder",
+  "homepage": "https://AnatoliyIliev.github.io/js-hw-13-image-finder",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-13-image-finder/",
@@ -12,13 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AnatoliyIliev/goit-js-hw-13-image-finder"
+    "url": "git+https://github.com/AnatoliyIliev/js-hw-13-image-finder"
   },
   "keywords": [],
   "author": "Anatoliy Iliev <vekok12@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AnatoliyIliev/goit-js-hw-13-image-finder/issues"
+    "url": "https://github.com/AnatoliyIliev/js-hw-13-image-finder/issues"
   },
   "devDependencies": {
     "@pnotify/core": "^5.2.0",
